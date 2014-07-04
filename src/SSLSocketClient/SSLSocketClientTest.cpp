@@ -3,16 +3,16 @@
 
 #include "stdafx.h"
 #include "SSLSocketClient.h"
-#include <wx/string.h>
+#include <string>
+
+using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     SSLSocketClient client;
-    wxString wxsConnectionString;
+    string strConnectionString = "qapos.sitescopec.cl:4266";
 
-    wxsConnectionString.FromAscii( "qapos.sitescopec.cl:4266" );
-
-    client.connect( wxsConnectionString );
+    client.connect( strConnectionString );
 	return 0;
 }
 

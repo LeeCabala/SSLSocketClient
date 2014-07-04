@@ -7,7 +7,7 @@
 
 #undef _UNICODE
 
-#include <wx/string.h>
+#include <string>
 
 class SSLSocketClient
 {
@@ -20,7 +20,7 @@ public:
 	SSLSocketClient(void);
 	virtual ~SSLSocketClient(void);
 
-	bool connect( wxString & wxsSocketConn );
-	bool send( wxString & wxsBuffer );
-	bool receive( wxString & wxsBuffer );
+	bool connect( std::string & strSocketConn );
+	bool send( std::string & strBuffer );
+	bool receive( std::string & strBuffer );
 };

@@ -20,6 +20,6 @@
 *.out
 *.app
 *.ncb
-*MSW.wxWidgets-2.6.2*
+*openssl*
 *Debug*
 *Release*

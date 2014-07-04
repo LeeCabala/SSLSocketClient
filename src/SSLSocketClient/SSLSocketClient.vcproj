@@ -41,12 +41,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\FC\STA-Rio\SSF.Dev\Extern.Libraries\openssl\include&quot;;&quot;..\MSW.wxWidgets-2.6.2\include\msvc&quot;;&quot;..\MSW.wxWidgets-2.6.2\include\&quot;"
-				PreprocessorDefinitions="_CONSOLE;WIN32;_DEBUG;_WINDOWS;_USRDLL;SSFFCADDINCOPECTAC_EXPORTS;_CRT_SECURE_NO_WARNINGS;TIXML_USE_STL;UNIT_TESTS"
+				AdditionalIncludeDirectories="..\openssl\include"
+				PreprocessorDefinitions="_CONSOLE;WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
+				TreatWChar_tAsBuiltInType="true"
 				UsePrecompiledHeader="2"
+				BrowseInformation="1"
 				WarningLevel="4"
 				DebugInformationFormat="4"
 			/>
@@ -61,11 +63,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib wxbase26d.lib wxbase26d_net.lib"
+				AdditionalDependencies="libeay32MT.lib ssleay32MT.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;..\MSW.wxWidgets-2.6.2\lib\vc_lib&quot;;&quot;C:\Fusion\SSF-STA-Rio\SSF.Dev\Extern.Libraries\openssl\lib\VC\static&quot;"
+				AdditionalLibraryDirectories="..\openssl\lib\VC\static"
 				GenerateDebugInformation="true"
 				SubSystem="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool

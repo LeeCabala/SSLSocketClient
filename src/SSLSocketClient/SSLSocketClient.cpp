@@ -9,20 +9,20 @@ SSLSocketClient::~SSLSocketClient(void)
 {
 }
 
-bool SSLSocketClient::connect( wxString & wxsSocketConn )
+bool SSLSocketClient::connect( std::string & strSocketConn )
 {
-    UNREFERENCED_PARAMETER( wxsSocketConn );
+    UNREFERENCED_PARAMETER( strSocketConn );
     return true;
 }
 
-bool SSLSocketClient::send( wxString & wxsBuffer )
+bool SSLSocketClient::send( std::string & strBuffer )
 {
-    UNREFERENCED_PARAMETER( wxsBuffer );
+    UNREFERENCED_PARAMETER( strBuffer );
     return true;
 }
 
-bool SSLSocketClient::receive( wxString & wxsBuffer )
+bool SSLSocketClient::receive( std::string & strBuffer )
 {
-    UNREFERENCED_PARAMETER( wxsBuffer );
+    UNREFERENCED_PARAMETER( strBuffer );
     return true;
 }
