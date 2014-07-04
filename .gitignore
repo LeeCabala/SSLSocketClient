@@ -19,3 +19,7 @@
 *.exe
 *.out
 *.app
+*.ncb
+*MSW.wxWidgets-2.6.2*
+*Debug*
+*Release*
