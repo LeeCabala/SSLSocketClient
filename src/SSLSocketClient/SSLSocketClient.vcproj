@@ -47,7 +47,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				BrowseInformation="1"
 				WarningLevel="4"
 				DebugInformationFormat="4"
@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libeay32MT.lib ssleay32MT.lib"
+				AdditionalDependencies="ws2_32.lib libeay32MT.lib ssleay32MT.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\openssl\lib\VC\static"
 				GenerateDebugInformation="true"
@@ -185,26 +185,6 @@
 				RelativePath=".\SSLSocketClientTest.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\stdafx.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -213,10 +193,6 @@
 			>
 			<File
 				RelativePath=".\SSLSocketClient.h"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
 				>
 			</File>
 			<File

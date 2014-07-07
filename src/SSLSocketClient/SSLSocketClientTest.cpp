@@ -1,18 +1,42 @@
 // SSLSocketClient.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include "SSLSocketClient.h"
 #include <string>
+#include <iostream>
+
+#define TIME_TO_SLEEP 1000
 
 using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
     SSLSocketClient client;
     string strConnectionString = "qapos.sitescopec.cl:4266";
+    string strSendMessage = "|01257|1|00000000000000557670|0135e17f09124e53ab2ad77e99c43f9ad16b9d66|TRANCONT|TRXCON=600900000000027218|PM=1|SA=27218|HO=3|GR=4|VO=11.521|AM=10000.0|PU=868.0|PAY_TY=COPEC_AUT_8|PAY_IN=$ATENDR=12~$SSF_TRANS_PAY_LAST_MOD_DATE_TIME=02/07/2014-14:37:20|LV=1|TY=1|PR=0.000|DA=20140702|TI=143556|TRX=CODSIT=60090~CODCLI=2~TRXPOS=600900214182184058~TRXCON=600900000000027218~ESTTRX=97~ESTFPA=0~IDATTN=12~IDATPR=0~IDATRE=12~CPOEQU=281-639-454~NPOEQU=02~FECPOS=20140702~HORPOS=184055~ZONHOR=-4~FLGPRE=0~FORPAG=8~PREFID=0~NUMSUR=1~FLGCON=0~FLGAUT=0~IDATJF=0~CODREC=8~COPIVE=3~COPRVE=4~COPUVE=868.000000~COTIVE=1~CONRVE=27218~COVOVE=1152.100000~COIMVE=10000.000000~COFEVE=20140702~COHOVE=143556~MONSOL=0~VOLSOL=0~MONAUT=0.000000~VOLAUT=1152~CODPRO=4~GRUPRO=2~NUMODO=0~PROPIN=0~TIPDES=0~DESXLT=0~DIGPAU=0~CODRES=0~CODERR=0~RUTEMI=79689550~FOLTIM=0~RZNEMI=ADMINISTRADORA DE ESTACIONES DE SERVICIO~DIREMI=5 de Abril 4299~NCOEMI=ESTACION CENTRAL~GIREMI=ADMINISTRADORA DE ESTACIONES DE SERVICIO~CODEMI=2~RUTREP=0~RCHREP=0~MONTIM=10000.000000~IVATOT=1133~IEFTOT=2906~IEVTOT=0~PRZTOT=5961~IEFUNI=252.311996~IEVUNI=0.000000~PRZUNI=517.403015~PRZUN2=867.980225~ACTECO=505000~CONSIG=1~IMPIVA=19~RUTCOP=99520000~ZONSII=SANTIAGO ORIENTE~TBKTLE=0~HEAPAP=146525~STACKP=111416~|TUID=97|^";
+    string strReceiveMessage;
+    int i = 0;
 
-    client.connect( strConnectionString );
+    while( i <= 100 )
+    {
+        client.connect( strConnectionString );
+
+        //cout << "Sending message: " << strSendMessage << endl;
+        client.send( strSendMessage );
+
+        //cout << "Receiving message" << endl;
+        client.receive( strReceiveMessage );
+        cout << strReceiveMessage <<endl;
+        client.close();
+
+#ifdef _WINDOWS
+        Sleep(TIME_TO_SLEEP);
+#else
+        usleep(TIME_TO_SLEEP);
+#endif
+        i++;
+    }
+
 	return 0;
 }
 

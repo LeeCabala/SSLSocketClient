@@ -1,0 +1,3 @@
+g++ -d -O3 -v -I/mnt/hgfs/HostCode/FC/STA-Rio/SSF.Dev/Extern.Libraries/openssl/include/linux/ -L/mnt/hgfs/HostCode/FC/STA-Rio/SSF.Dev/Extern.Libraries/openssl/lib/ SSLSocketClient.cpp SSLSocketClientTest.cpp -o client -ldl -lz -lssl -lcrypto
+
+valgrind --leak-check=full --show-reachable=no ./client
